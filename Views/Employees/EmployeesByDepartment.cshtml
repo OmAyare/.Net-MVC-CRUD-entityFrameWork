@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CRUD_entityFrameWork.Models.DepartmentTotals>
+
+@{
+    ViewBag.Title = "EmployeesByDepartment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="font-family:Arial">
+    <h2>EmployeesByDepartment</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table" border="1">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Totals)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Totals)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.DepartmentId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.DepartmentId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.DepartmentId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
